@@ -1,0 +1,2 @@
+Assets/BuildingX.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/uva190522.FBX filter=lfs diff=lfs merge=lfs -text
