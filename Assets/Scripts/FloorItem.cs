@@ -6,17 +6,17 @@ using UnityEngine;
 public class FloorItem:MonoBehaviour
 {
     private FloorController parent;
-    [SerializeField]
+    
     private float timeID;
-    [SerializeField]
+    
     private bool canDestroyItself;
 
     [SerializeField]
     private bool DontRemoveMe;
 
-    [SerializeField] private Rigidbody rigid;
+    private Rigidbody rigid;
     
-    [SerializeField] private AudioSource audio;
+    private AudioSource audio;
     
     private float eventStartTime;
     private float animSpeed;
