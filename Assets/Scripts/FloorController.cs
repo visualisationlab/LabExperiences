@@ -5,26 +5,33 @@ using UnityEngine;
 public class FloorController : MonoBehaviour
 {
     public float animationSpeed;
-    public Action<float, float> DestroyEvent;
+    public Action<float> DestroyEvent;
+    public Action ResetEvent;
     public AudioSource rumbleAudio;
-
     private void Start()
     {
         StartCoroutine(TimeDestroyFloor());
+        rumbleAudio.Play();
     }
 
     private IEnumerator TimeDestroyFloor()
     {
-        yield return new WaitForSeconds(5f);
-        DestroyFloor();
+        yield return new WaitForSeconds(2f);
+        FallFloor();
+        yield return new WaitForSeconds(20f);
+        ResetEvent?.Invoke();
+        RestartTimer();
     }
 
-    public void DestroyFloor()
+    private void RestartTimer()
     {
-        DestroyEvent?.Invoke(Time.time * animationSpeed, animationSpeed);
-        rumbleAudio.Play();
+        StartCoroutine(TimeDestroyFloor());
     }
-    
+
+    public void FallFloor()
+    {
+        DestroyEvent?.Invoke(Time.time);
+    }
 }
 
 /*
