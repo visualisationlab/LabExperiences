@@ -13,13 +13,13 @@ public class FloorItem:MonoBehaviour
 
     [SerializeField]
     private bool DontRemoveMe;
+    
+    [SerializeField]
+    private float animSpeed;
 
     private Rigidbody rigid;
-    
     private AudioSource audio;
-    
     private float eventStartTime;
-    
     private Vector3 initPosition;
     private void Start()
     {
@@ -30,7 +30,7 @@ public class FloorItem:MonoBehaviour
         parent.ResetEvent += ResetPosition;
         
         timeID = Mathf.Abs(transform.localPosition.x + transform.localPosition.z*8); // 11 is the amount of rows (Clean)
-        timeID /= 5; //fall anim spacing time
+        timeID /= animSpeed; //fall anim spacing time
         
         initPosition = transform.position;
     }
@@ -55,7 +55,6 @@ public class FloorItem:MonoBehaviour
         
         if (canDestroyItself && time > timeID)
         {
-            Debug.Log($"time: {time} > time ID: {timeID}");
             rigid.isKinematic = false;
             canDestroyItself = false;
             if(audio) audio.Play();
