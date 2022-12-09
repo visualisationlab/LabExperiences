@@ -8,19 +8,14 @@ public class FloorController : MonoBehaviour
     public AudioSource rumbleAudio;
     public InteriorController interior;
 
-    private void Start()
-    {
-        rumbleAudio.Play();
-    }
-
     public void RestartScene()
     {
         ResetEvent?.Invoke();
         interior.Restore();
-        rumbleAudio.Play();
     }
     public void FallFloor()
     {
+        rumbleAudio.Play();
         DestroyEvent?.Invoke(Time.time);
     }
 }
