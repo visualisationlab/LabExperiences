@@ -23,7 +23,7 @@ namespace Ubiq.Avatars
 
         private void Start()
         {
-            var pcs = FindObjectsOfType<XRPlayerController>(includeInactive:true);
+            var pcs = FindObjectsOfType<XRCustomPlayerController>(includeInactive:true);
 
             if (pcs.Length == 0)
             {

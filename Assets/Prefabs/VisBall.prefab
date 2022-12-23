@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 183512719325895393}
   - component: {fileID: -1109245658572212727}
   - component: {fileID: 1470964108229065708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1470964108229065708
 MonoBehaviour:
   m_ObjectHideFlags: 0
