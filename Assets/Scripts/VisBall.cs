@@ -8,6 +8,8 @@ using Ubiq.Rooms;
 using Ubiq.Spawning;
 using Ubiq.XR;
 using UnityEngine;
+using UnityEngine.XR;
+using Hand = Ubiq.XR.Hand;
 
 public class VisBall : MonoBehaviour, INetworkSpawnable, IGraspable
 {
@@ -51,6 +53,9 @@ public class VisBall : MonoBehaviour, INetworkSpawnable, IGraspable
         
         MakeClaim(RoomClient.Me.uuid, true);
         followStep = 0;
+
+        InputDevice device = new InputDevice();
+        
         
         Physics.IgnoreLayerCollision(3, 6, true);
         var handTransform = controller.transform;
